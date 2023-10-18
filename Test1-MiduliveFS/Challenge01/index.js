@@ -3,23 +3,25 @@
 
 import net from 'node:net'
 
-export const ping = (ip) => {
+export const ping = (ip, callback) => { //Was missing the second parameter, the callback function (err, info) ()
   const startTime = process.hrtime()
 
   const client = net.connect({ port: 80, host: ip }, () => {
     client.end()
-    return { time: process.hrtime(startTime), ip }
+    //return { time: process.hrtime(startTime), ip } // it doesn't work
+    callback(null, { time: process.hrtime(startTime), ip } )
   })
   
   client.on('error', (err) => {
-    throw err
+    //throw err // it doesn't work
     client.end()
+    callback(err) // Or callback(err, null)
   })
 }
 
-ping('midu.dev', (err, info) => {
+ping('youtube.com', (err, info) => {
   if (err) console.error(err)
-  console.log(info)
+  else console.log(info)
 })
 
 // TIPS

@@ -19,6 +19,11 @@ npm install express
 "type": "module"
 ```
 
+* Add script tests in package.json:
+```bash
+"test": "node --test"
+```
+
 
 ---
 
