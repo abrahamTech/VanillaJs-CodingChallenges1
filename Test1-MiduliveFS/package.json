@@ -1,0 +1,21 @@
+{
+  "name": "test1-midulivefs",
+  "version": "1.0.0",
+  "description": "JavaScript + Node.js Technical Test",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "technical",
+    "test",
+    "js",
+    "nodejs"
+  ],
+  "author": "abrahamTech",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
