@@ -54,3 +54,13 @@ ping('midu.dev', (err, info) => {
   console.log(info)
 })
 ```
+
+2 - Transform the following function so that it works with promises instead of callbacks:
+
+```javascript
+export function obtenerDatosPromise(callback) {
+  setTimeout(() => {
+    callback(null, { data: 'datos importantes' });
+  }, 2000);
+}
+```
