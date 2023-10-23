@@ -64,3 +64,32 @@ export function obtenerDatosPromise(callback) {
   }, 2000);
 }
 ```
+
+
+3 - Explain what the function does. Identify and fix errors in the following code. If you see something unnecessary, delete it. Then improve it so that it still works with callback and then do what you consider to improve its readability.
+
+```javascript
+export function procesarArchivo() {
+  fs.readFile('input.txt', 'utf8', (error, contenido) => {
+    if (error) {
+      console.error('Error leyendo archivo:', error.message);
+      return false;
+    }
+
+    setTimeout(() => {
+      const textoProcesado = contenido.toUpperCase();
+
+      fs.writeFile('output.txt', textoProcesado, error => {
+        if (error) {
+          console.error('Error guardando archivo:', error.message);
+          return false;
+        }
+
+        console.log('Archivo procesado y guardado con éxito');
+        return true
+      });
+
+    }, 1000);
+  });
+}
+```
