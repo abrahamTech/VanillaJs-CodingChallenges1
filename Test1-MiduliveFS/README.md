@@ -30,7 +30,7 @@ npm install express
 ## Test 
 
 
-1 - Fix this function so that the subsequent code works as expected:
+* 1 - Fix this function so that the subsequent code works as expected:
 
 ```javascript
 import net from 'node:net'
@@ -55,7 +55,7 @@ ping('midu.dev', (err, info) => {
 })
 ```
 
-2 - Transform the following function so that it works with promises instead of callbacks:
+* 2 - Transform the following function so that it works with promises instead of callbacks:
 
 ```javascript
 export function obtenerDatosPromise(callback) {
@@ -66,7 +66,7 @@ export function obtenerDatosPromise(callback) {
 ```
 
 
-3 - Explain what the function does. Identify and fix errors in the following code. If you see something unnecessary, delete it. Then improve it so that it still works with callback and then do what you consider to improve its readability.
+* 3 - Explain what the function does. Identify and fix errors in the following code. If you see something unnecessary, delete it. Then improve it so that it still works with callback and then do what you consider to improve its readability.
 
 ```javascript
 export function procesarArchivo() {
@@ -92,4 +92,20 @@ export function procesarArchivo() {
     }, 1000);
   });
 }
+```
+
+* 4 - How would you improve the following code and why? Fix tests if necessary:
+
+```javascript
+import fs from 'node:fs';
+
+export function leerArchivos() {
+  const archivo1 = fs.readSync('archivo1.txt', 'utf8');
+  const archivo2 = fs.readSync('archivo2.txt', 'utf8');
+  const archivo3 = fs.readSync('archivo3.txt', 'utf8');
+
+  return `${archivo1} ${archivo2} ${archivo3}`
+}
+
+leerArchivos();
 ```
