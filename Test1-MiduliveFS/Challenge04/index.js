@@ -88,7 +88,7 @@ export async function readFiles4() {
     //The position of the array when we destructure it matters
     const [file1, file2, file3] = await Promise.allSettled([
         fsp.readFile('./Challenge04/files/file1.txt', 'utf8'),
-        fsp.readFile('./Challenge04/files/file2adas.txt', 'utf8'),
+        fsp.readFile('./Challenge04/files/file2.txt', 'utf8'),
         fsp.readFile('./Challenge04/files/file3.txt', 'utf8'),
     ])
     
