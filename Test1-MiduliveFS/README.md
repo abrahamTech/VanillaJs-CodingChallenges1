@@ -109,3 +109,16 @@ export function leerArchivos() {
 
 leerArchivos();
 ```
+
+* 5 - Write a delay function that returns a promise that resolves after n milliseconds. For example:
+
+```javascript
+export async function delay () {
+  // ...
+}
+
+delay(3000).then(() => console.log('Hola mundo'));
+// o..
+await delay(3000)
+console.log('Hola mundo')
+```
