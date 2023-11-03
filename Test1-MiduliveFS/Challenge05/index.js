@@ -22,3 +22,27 @@ export async function delay (time) {
 }
 
 delay(3000)
+
+//Clear timeout when a promise is returned
+
+export async function delay2 (time) {
+    let timeoutId
+
+    let promise = new Promise(res => {
+        timeoutId = setTimeout(() => {
+            console.log("Hello World 1")
+            res(console.log("Hello World 2"))
+        }, time)
+    })
+
+    return {
+        clearTimeout: () => clearTimeout(timeoutId),
+        promise
+    }
+}
+
+const { promise, clearTimeout } = delay2(2000);
+
+await promise;
+
+clearTimeout();
