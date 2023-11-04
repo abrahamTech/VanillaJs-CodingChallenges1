@@ -122,3 +122,39 @@ delay(3000).then(() => console.log('Hola mundo'));
 await delay(3000)
 console.log('Hola mundo')
 ```
+
+* 6.- Let's create our own dotenv utility in the dotenv.js file.
+The utility should return a config method that reads the .env file and adds any environment variables in the file to the process.env object.
+
+For example if your `.env` file contains:
+
+``` bash
+PORT=8080
+TOKEN="123abc"
+```
+
+Then we could do this:
+
+```javascript
+const dotenv = require("./dotenv.js");
+dotenv.config()
+
+console.log(process.env.PORT) // "8008"
+console.log(process.env.TOKEN) // "123abc"
+```
+
+You can also pass the path of the `.env` file as a parameter:
+
+```javascript
+const dotenv = require("./dotenv.js");
+dotenv.config("./config/.env.local")
+```
+
+Things to keep in mind:
+
+* Only the `fs` module is allowed to be used to read the file.
+* If the file does not exist, it should not give an error, it just does nothing.
+* If the file exists, but does not have any environment variables, you should do nothing.
+* It should only support the `.env` file or the one passed as a parameter, it does not need to support `.env.local`, `.env.development` and similar automatically.
+* Environment variables are always strings, so if there is a number in the .env file, for example `PORT=8080`, when you read it with `fs` and add it to `process.env` it should be a string, not a number.
+* `process.env` is an object and is therefore mutable. This means that we can add new properties without problems.
